@@ -1,5 +1,4 @@
 #include "lexer.h"
-#include "token.h"
 #include <stdbool.h> /* bool */
 #include <ctype.h> /* isspace, isdigit, isalpha */
 #include "../common/macros.h" /* ARRLEN */
@@ -97,42 +96,33 @@ Token lexer_next_token(Lexer *lex)
         }
         return token_make(TOK_LT, line, col, start, 1);
 
+    case ':':
+        if (match(lex, ':')) {
+            return token_make(TOK_DOUBLECOLON, line, col, start, 2);
+        }
+        return token_make(TOK_COLON, line, col, start, 1);
+
     /* check for single character tokens, this section containst mostly
      * punctuation and math related tokens. */
-    case '+':
-        return token_make(TOK_PLUS, line, col, start, 1);
-    case '-':
-        return token_make(TOK_MINUS, line, col, start, 1);
-    case '*':
-        return token_make(TOK_STAR, line, col, start, 1);
-    case '/':
-        return token_make(TOK_SLASH, line, col, start, 1);
-    case '%':
-        return token_make(TOK_PERCENT, line, col, start, 1);
-    case '(':
-        return token_make(TOK_LPAREN, line, col, start, 1);
-    case ')':
-        return token_make(TOK_RPAREN, line, col, start, 1);
-    case '[':
-        return token_make(TOK_LBRACKET, line, col, start, 1);
-    case ']':
-        return token_make(TOK_RBRACKET, line, col, start, 1);
-    case '{':
-        return token_make(TOK_LBRACE, line, col, start, 1);
-    case '}':
-        return token_make(TOK_RBRACE, line, col, start, 1);
-    case ':':
-        return token_make(TOK_COLON, line, col, start, 1);
-    case ';':
-        return token_make(TOK_SEMICOLON, line, col, start, 1);
-    case ',':
-        return token_make(TOK_COMMA, line, col, start, 1);
-    case '.':
-        return token_make(TOK_DOT, line, col, start, 1);
+    /* *INDENT-OFF* */
+    case '+': return token_make(TOK_PLUS, line, col, start, 1);
+    case '-': return token_make(TOK_MINUS, line, col, start, 1);
+    case '*': return token_make(TOK_STAR, line, col, start, 1);
+    case '/': return token_make(TOK_SLASH, line, col, start, 1);
+    case '%': return token_make(TOK_PERCENT, line, col, start, 1);
+    case '(': return token_make(TOK_LPAREN, line, col, start, 1);
+    case ')': return token_make(TOK_RPAREN, line, col, start, 1);
+    case '[': return token_make(TOK_LBRACKET, line, col, start, 1);
+    case ']': return token_make(TOK_RBRACKET, line, col, start, 1);
+    case '{': return token_make(TOK_LBRACE, line, col, start, 1);
+    case '}': return token_make(TOK_RBRACE, line, col, start, 1);
+    case ';': return token_make(TOK_SEMICOLON, line, col, start, 1);
+    case ',': return token_make(TOK_COMMA, line, col, start, 1);
+    case '.': return token_make(TOK_DOT, line, col, start, 1);
     /* we didn't find any valid char, return back an invalid token
      * to signal the syntax error. */
-    default:
-        return token_make(TOK_INVALID, line, col, start, 1);
+    default: return token_make(TOK_INVALID, line, col, start, 1);
+    /* *INDENT-ON* */
     }
 }
 

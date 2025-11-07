@@ -7,6 +7,8 @@
  * tokens that represent keywords, the first argument of the macro is the token kind and
  * the second is the keyword spelling. */
 
+/*===================== First Section: Standard Tokens =======================*/
+
 XX(TOK_INT_LIT)      /* int literal    */
 XX(TOK_FLOAT_LIT)    /* float literal  */
 XX(TOK_STRING_LIT)   /* string literal */
@@ -38,17 +40,30 @@ XX(TOK_DOT)          /*        .       */
 XX(TOK_COLON)        /*        :       */
 XX(TOK_COMMA)        /*        ,       */
 XX(TOK_SEMICOLON)    /*        ;       */
+XX(TOK_DOUBLECOLON)  /*        ::      */
 
 XX(TOK_EOF)          /*        \0      */
 XX(TOK_INVALID)      /* invalid symbol */
 
-XXKW(TOK_KW_LET, let)
-XXKW(TOK_KW_IF, if)
-XXKW(TOK_KW_ELSE, else)
-XXKW(TOK_KW_FN, fn)
-XXKW(TOK_KW_CLASS, class)
-XXKW(TOK_KW_PUBLIC, public)
-XXKW(TOK_KW_FOR, for)
-XXKW(TOK_KW_WHILE, while)
-XXKW(TOK_KW_TRUE, true)
-XXKW(TOK_KW_FALSE, false)
+/*========================= Second Section: Keywords =========================*/
+
+XXKW(TOK_KW_RETURN, return)     /* return values        */
+XXKW(TOK_KW_LET, let)           /* Immutable binding    */
+XXKW(TOK_KW_VAR, var)           /* variable definition  */
+XXKW(TOK_KW_IF, if)             /* if branch            */
+XXKW(TOK_KW_ELSE, else)         /* else branch          */
+XXKW(TOK_KW_FN, fn)             /* function decls       */
+XXKW(TOK_KW_CLASS, class)       /* class defs           */
+XXKW(TOK_KW_ENUM, enum)         /* enumeration defs     */
+XXKW(TOK_KW_PUBLIC, public)     /* visibility modifier  */
+XXKW(TOK_KW_FOR, for)           /* for loop             */
+XXKW(TOK_KW_WHILE, while)       /* while loop           */
+XXKW(TOK_KW_CONTINUE, continue) /* control flow         */
+XXKW(TOK_KW_BREAK, break)       /* control flow         */
+XXKW(TOK_KW_TRUE, true)         /* true expr            */
+XXKW(TOK_KW_FALSE, false)       /* false expr           */
+XXKW(TOK_KW_INT, int)           /* built-in int type    */
+XXKW(TOK_KW_FLOAT, float)       /* built-in float type  */
+XXKW(TOK_KW_STRING, string)     /* built-in string type */
+XXKW(TOK_KW_IMPORT, import)     /* import modules/lib   */
+XXKW(TOK_KW_MODULE, module)     /* module definition    */

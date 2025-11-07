@@ -1,7 +1,7 @@
 #include "token.h"
 #include <stdio.h>
 
-const char *token_kind_as_string(TokenKind tk)
+const char *token_kind_to_string(TokenKind tk)
 {
     switch (tk) {
 #define XX(a) case a: return #a;
@@ -26,7 +26,7 @@ Token token_make(TokenKind tk, size_t line, size_t col, const char *ptr, size_t 
 
 void token_debug(Token tok)
 {
-    const char *tk_str = token_kind_as_string(tok.kind);
+    const char *tk_str = token_kind_to_string(tok.kind);
     printf("[ %s | " STRVIEW_FMT " | %zu:%zu]\n",
            tk_str, STRVIEW_FMT_PARAMS(tok.sv),tok.line, tok.col);
 }
