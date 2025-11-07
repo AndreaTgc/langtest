@@ -1,0 +1,54 @@
+/* The following file contains the definitions of the X-macros used for token
+ * type related codegen. each line contains a macro that will be expanded
+ * in order to generate specific code inside the compiler.
+ * the first section contains token kinds defined with the XX macro, they represent
+ * basic literals, separators and operators.
+ * the second section contains token kinds defined with the KW macro, this macro defines
+ * tokens that represent keywords, the first argument of the macro is the token kind and
+ * the second is the keyword spelling. */
+
+XX(TOK_INT_LIT)      /* int literal    */
+XX(TOK_FLOAT_LIT)    /* float literal  */
+XX(TOK_STRING_LIT)   /* string literal */
+XX(TOK_IDENTIFIER)   /* identifier     */
+
+XX(TOK_PLUS)         /*        +       */
+XX(TOK_MINUS)        /*        -       */
+XX(TOK_STAR)         /*        *       */
+XX(TOK_SLASH)        /*        /       */
+XX(TOK_PERCENT)      /*        %       */
+
+XX(TOK_BANG)         /*        !       */
+XX(TOK_EQUAL)        /*        =       */
+XX(TOK_DOUBLEEQUAL)  /*        ==      */
+XX(TOK_NOTEQUAL)     /*        !=      */
+XX(TOK_GT)           /*        >       */
+XX(TOK_GTE)          /*        >=      */
+XX(TOK_LT)           /*        <       */
+XX(TOK_LTE)          /*        <=      */
+
+
+XX(TOK_LPAREN)       /*        (       */
+XX(TOK_RPAREN)       /*        )       */
+XX(TOK_LBRACKET)     /*        [       */
+XX(TOK_RBRACKET)     /*        ]       */
+XX(TOK_LBRACE)       /*        {       */
+XX(TOK_RBRACE)       /*        }       */
+XX(TOK_DOT)          /*        .       */
+XX(TOK_COLON)        /*        :       */
+XX(TOK_COMMA)        /*        ,       */
+XX(TOK_SEMICOLON)    /*        ;       */
+
+XX(TOK_EOF)          /*        \0      */
+XX(TOK_INVALID)      /* invalid symbol */
+
+XXKW(TOK_KW_LET, let)
+XXKW(TOK_KW_IF, if)
+XXKW(TOK_KW_ELSE, else)
+XXKW(TOK_KW_FN, fn)
+XXKW(TOK_KW_CLASS, class)
+XXKW(TOK_KW_PUBLIC, public)
+XXKW(TOK_KW_FOR, for)
+XXKW(TOK_KW_WHILE, while)
+XXKW(TOK_KW_TRUE, true)
+XXKW(TOK_KW_FALSE, false)

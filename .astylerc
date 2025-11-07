@@ -1,0 +1,4 @@
+style=linux               # Braces style
+indent=spaces=4           # Use 4 spaces per indent level
+convert-tabs              # Convert tabs to spaces
+mode=c                    # Should be able to infer it 
